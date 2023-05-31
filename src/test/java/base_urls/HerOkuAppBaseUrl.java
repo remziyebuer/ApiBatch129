@@ -5,16 +5,13 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class JsonPlaceHolderBaseUrl {
-//setUp() methodu ile request isleminde tekrrli yapilacak islemler burada bir
-// kez yapilacak.@Test öncesi calismasi icin @Before Annotationu olusturuyoruz.
+public class HerOkuAppBaseUrl {
     protected RequestSpecification spec;
 
-    @Before//Her @Test methodu öncesi calisir
+    @Before
     public void setUp() throws Exception {
         spec = new RequestSpecBuilder()
-                .setBaseUri("https://jsonplaceholder.typicode.com")
-                .setAccept(ContentType.JSON)
+                .setBaseUri("https://restful-booker.herokuapp.com")
                 .build();
 
 
