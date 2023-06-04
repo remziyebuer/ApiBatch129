@@ -11,6 +11,7 @@ public class HerOkuAppBaseUrl {
     @Before
     public void setUp() throws Exception {
         spec = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
                 .setBaseUri("https://restful-booker.herokuapp.com")
                 .build();
 
