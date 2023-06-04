@@ -15,17 +15,26 @@ public class JsonPlaceHolderTestData {
 
      */
 
-    public Map<String , Object> expectedDataMapMetHod(int userId, String title ,boolean completed ){
+    public Map<String , Object> expectedDataMapMetHod(Integer userId, String title , Boolean completed ){
 
         Map<String , Object> expectedData = new HashMap<>();
 
-        expectedData.put("userId", userId );
-        expectedData.put("title", title);
-        expectedData.put("completed",completed );
+        if(userId != null) { //parametre önceden int id ama int null alamaz o yüzden onu Integer
+           // wrapper classina cevirdik ayni sekilde boolean 'i da Boolean olarak degistirdik.
+           expectedData.put("userId", userId);
+        }
 
+       if (title!= null) {
+           expectedData.put("title", title);
+       }
 
-   return expectedData;
-    }
+       if (completed != null) {
+           expectedData.put("completed", completed);
+       }
+
+       return expectedData;
+    }//bu methodu patch te de kullanabilmek icin sonradan if ekledik daha dinamik oldu artik patch
+    // te de kullanabilirim.
 
 
 
