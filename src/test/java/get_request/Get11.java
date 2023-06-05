@@ -1,7 +1,13 @@
 package get_request;
 
 import base_urls.HerOkuAppBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
+import pojos.BookingDatesPojo;
+import pojos.BookingPojo;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Get11 extends HerOkuAppBaseUrl {
        /*
@@ -29,10 +35,29 @@ public class Get11 extends HerOkuAppBaseUrl {
     @Test
     public void get11() {
         //Set the url
-        spec.pathParams("first", "booking","second","11");
+        spec.pathParams("first", "booking","second",11);
 
         //Set the expected data
+        BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01","2019-01-01");
+        BookingPojo expectedData  = new BookingPojo("John", "Smith", 111,
+                true ,bookingDatesPojo,"Breakfast");
+        System.out.println("expectedData = " + expectedData);
 
+        //Send the request and get the response
+       Response response = given(spec).get("{first}/{second}");
+       response.prettyPrint();
+
+       //Do Assertion
+        BookingPojo actualData = response.as(BookingPojo.class);
+
+        assertEquals(200 , response.statusCode());
+
+        assertEquals(expectedData.getFirstname(),actualData.getFirstname());
+        assertEquals(expectedData.getLastname(),actualData.getLastname());
+        assertEquals(expectedData.getTotalprice(),actualData.getTotalprice());
+        assertEquals(bookingDatesPojo.getCheckin(),actualData.getBookingdates().getCheckin());
+        assertEquals(bookingDatesPojo.getCheckout(),actualData.getBookingdates().getCheckout());
+        assertEquals(expectedData.getAdditionalneeds(),actualData.getAdditionalneeds());
 
 
 
