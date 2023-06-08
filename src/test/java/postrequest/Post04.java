@@ -45,7 +45,7 @@ public class Post04 extends HerOkuAppBaseUrl {
      */
 
     @Test
-    public void get12() {
+    public void post04() {
         //Set the url
         spec.pathParam("first", "booking");
 
