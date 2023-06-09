@@ -29,7 +29,7 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
 									    "id": 198
 									    }
      */
-
+//Patch pojo ile sorun oluyor map daha iyi ****************
     @Test//Patch request ==> Kısmı güncelleme(Put)
     public void patch01() {
         //Set the url

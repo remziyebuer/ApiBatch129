@@ -2,7 +2,6 @@ package postrequest;
 
 import base_urls.JsonPlaceHolderBaseUrl;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
@@ -11,7 +10,7 @@ import utils.ObjectMapperUtils;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Post06_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
+public class Post05_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
        /*
          Given
            1) https://jsonplaceholder.typicode.com/todos
@@ -35,7 +34,7 @@ public class Post06_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
      */
 
     @Test//En iyi yöntem: ObjectMapper + Pojo Class
-    public void post06() throws JsonProcessingException {
+    public void post05Pojo() throws JsonProcessingException {
         //Set the url
         spec.pathParam("first", "todos");
 

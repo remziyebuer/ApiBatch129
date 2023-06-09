@@ -40,7 +40,7 @@ public class Post05_ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
      */
 
     @Test//
-    public void post05() throws JsonProcessingException {
+    public void post05Map() throws JsonProcessingException {
         //Set the url
         spec.pathParam("first", "todos");
 
