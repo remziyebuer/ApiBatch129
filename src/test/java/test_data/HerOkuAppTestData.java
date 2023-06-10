@@ -47,4 +47,18 @@ public Map<String, String> bookingdatesMapMethod(String checkin, String checkout
 
         return expectedData;
     }
+
+    public Map<String, Object> hamitGül(String name , String job){
+        Map<String, Object> expectedData =new HashMap<>();
+        expectedData.put("name",name);
+        expectedData.put("job",job);
+
+return expectedData;
+    }
+
+
+
+
+
+
 }
