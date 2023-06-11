@@ -6,9 +6,8 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.Matchers.hasSize;
+
+import static org.hamcrest.Matchers.*;
 
 public class Get04 extends JsonPlaceHolderBaseUrl {
 
@@ -51,7 +50,7 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
         response.then()
                 .statusCode(200)//HTTP Status Code should be 200
                 .contentType(ContentType.JSON)//Response format should be "application/json"
-                .body("id" , hasSize(200))//There should be 200 todos
+                .body("title" , hasSize(200))//There should be 200 todos
                 .body("title" , hasItem("quis eius est sint explicabo"))//"quis eius est sint explicabo" should be one of the todos titl
                 .body("userId" , hasItems(2,7,9));//2, 7, and 9 should be among the userIds
 

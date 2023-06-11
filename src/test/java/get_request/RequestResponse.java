@@ -18,7 +18,7 @@ public class RequestResponse {
             y) When: Yapılacak işlemler --> Get, Put, Delete ...
             z) Then: Dönütler --> Assertion, Close ...
             t) And:  Art arda kullanılan aynı işlemler için and kullanılır
-        c) Otomasyon kolarının yazma:
+        c) Otomasyon kodlarını yazma:
             i) Set the URL --> Endpoint'i kur
             ii) Set the expected data --> Beklenen veriyi kur
             iii) Send the request and get the response --> Request yolla, response al

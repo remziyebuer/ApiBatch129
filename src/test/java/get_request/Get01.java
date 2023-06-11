@@ -35,8 +35,7 @@ public class Get01 {
 
 
         //        iv) Do Assertion --> Doğrulama yap
-        response.then()
-                .statusCode(200) //HTTP Status Code should be 200
+        response.then().statusCode(200) //HTTP Status Code should be 200
                 .contentType("application/json")// Content Type should be "application/json"
                 .statusLine("HTTP/1.1 200 OK");//Status Line should be "HTTP/1.1 200 OK"
 
