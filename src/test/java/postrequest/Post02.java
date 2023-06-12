@@ -62,9 +62,12 @@ public class Post02 extends HerOkuAppBaseUrl {
 
         //Send the request and get the response
         Response response = given(spec).body(expectedData).post("{first}");
-        response.prettyPrint();//????????????SOR
+        response.prettyPrint();//body() methodu, HTTP isteği gövdesini belirtmek için kullanılır.
+        // İstek gövdesi, isteğin içinde taşınan verileri temsil eder. body() methoduyla, istek
+        // gövdesini farklı şekillerde belirleyebilirsiniz, örneğin bir JSON nesnesi, metin veya
+        // dosya olabilir.
 
-        //Do Assertion
+
 
         //Do assertion
         Map<String, Object> actualData = response.as(HashMap.class);

@@ -61,6 +61,13 @@ public class Get03 {
         //Çoklu body() methodları içinde tek assertion yaparak "hard assertion" yaparız. İlk
         // fail durumunda çalışma durur ve sonraki assetionlar hakkında bilgi alamayız.
 
+        /*
+        body() methodu, çeşitli kriterlere dayanarak response'un içeriğini kontrol etmek için kullanılır.
+        Bu kriterler, genellikle Hamcrest Matchers veya benzeri bir doğrulama kütüphanesiyle birlikte
+        kullanılır. Örneğin,
+        equalTo() methodu, bir değerin belirli bir değerle eşleşip eşleşmediğini kontrol etmek için kullanılır.
+         */
+
 
     }
 }

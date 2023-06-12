@@ -31,16 +31,29 @@ public Map<String, String> bookingdatesMapMethod(String checkin, String checkout
 
 }
 
-    public Map<String, Object> expectedDataMapMethod(String firstname, String lastname , int totalprice,
-                                                     boolean depositpaid,
-                                                     Map<String , String> bookingsDateMap,String additionalneeds) {
+    public Map<String, Object> expectedDataMapMethod(String firstname, String lastname ,
+                                                     Integer totalprice, Boolean depositpaid,
+                                                     Map<String , String> bookingsDateMap,
+                                                     String additionalneeds) {
 
         Map<String, Object> expectedData = new HashMap<>();
-        expectedData.put("firstname", firstname);
-        expectedData.put("lastname", lastname);
-        expectedData.put("totalprice", totalprice);
-        expectedData.put("depositpaid", depositpaid);
-        expectedData.put("bookingdates", bookingsDateMap);
+
+        if(firstname !=null) {
+            expectedData.put("firstname", firstname);
+        }
+        if(lastname !=null) {
+            expectedData.put("lastname", lastname);
+        }
+        if(totalprice !=null) {
+            expectedData.put("totalprice", totalprice);
+        }
+        if(depositpaid !=null) {
+            expectedData.put("depositpaid", depositpaid);
+        }
+        if( bookingsDateMap !=null) {
+            expectedData.put("bookingdates", bookingsDateMap);
+        }
+
         if(additionalneeds !=null) {
             expectedData.put("additionalneeds", additionalneeds);
         }
@@ -48,13 +61,7 @@ public Map<String, String> bookingdatesMapMethod(String checkin, String checkout
         return expectedData;
     }
 
-    public Map<String, Object> hamitGül(String name , String job){
-        Map<String, Object> expectedData =new HashMap<>();
-        expectedData.put("name",name);
-        expectedData.put("job",job);
 
-return expectedData;
-    }
 
 
 

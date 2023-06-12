@@ -1,4 +1,4 @@
-package herokuapp_smoketest;
+package smoketest01_herokuapp;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
@@ -55,7 +55,8 @@ public class C01_PostRequest extends HerOkuAppBaseUrl {
 }
      */
 
-    public static int bookingid;
+    public static int bookingid; //****diger classlarda buradan impor edecegiz
+
 
     @Test
     public void smokeTestPost() {
