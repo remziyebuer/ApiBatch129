@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
-public class C02_GetRequest extends HerOkuAppBaseUrl {
+public class C02_GetRequest_PozitifTest extends HerOkuAppBaseUrl {
      /*
     Given
      https://restful-booker.herokuapp.com/booking/:id
@@ -39,15 +39,18 @@ public class C02_GetRequest extends HerOkuAppBaseUrl {
      */
 
     @Test
-    public void smokeTestGet() {//böylece pozitif testimizi olusturmus olduk
+    public void smokeTestGetPozitiv() {//böylece pozitif testimizi olusturmus olduk
 
+        //Set the Url
         spec.pathParams("first","booking","second", bookingid);
 
+        //Set the expected Data
         BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01", "2019-01-01");
         BookingPojo expectedData =  new BookingPojo( "Jim", "Brown", 111, true,
               bookingDatesPojo,"Breakfast");
         System.out.println("expectedData = " + expectedData);
 
+        //Send The Request Get the Response
         Response response =   given(spec).get("{first}/{second}");
         response.prettyPrint();//su an bunu calistirdigimda not found alirim cün ki su an id '0'
         //id nin bir deger alabilmesi icin önce post request class i calismali

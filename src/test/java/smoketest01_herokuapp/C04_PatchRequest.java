@@ -1,8 +1,16 @@
 package smoketest01_herokuapp;
 
 import base_urls.HerOkuAppBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.HerOkuAppTestData;
+import utils.ObjectMapperUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 import static smoketest01_herokuapp.C01_PostRequest.bookingid;
 
 public class C04_PatchRequest extends HerOkuAppBaseUrl {
@@ -11,6 +19,7 @@ public class C04_PatchRequest extends HerOkuAppBaseUrl {
       https://restful-booker.herokuapp.com/booking/:id
      And
      {
+     "totalprice": 555,
     "additionalneeds" : "Lunch"
       }
      When
@@ -22,7 +31,7 @@ public class C04_PatchRequest extends HerOkuAppBaseUrl {
 {
         "firstname": "Ali",
         "lastname": "Can",
-        "totalprice": 111,
+        "totalprice": 555,
         "depositpaid": true,
         "bookingdates": {
             "checkin": "2018-01-01",
@@ -35,8 +44,28 @@ public class C04_PatchRequest extends HerOkuAppBaseUrl {
      */
 
     @Test
-    public void smokeTestPatch() {
-        spec.pathParams("first","booking","second", bookingid);
+    public void smokeTestPatch() {//map tavsiye edilir Patchte
+
+        //Set the url
+        spec.pathParams("first", "booking", "second", bookingid);
+
+        //Set the expected Data
+        Map<String, Object> expectedData = new HerOkuAppTestData()
+                .expectedDataMapMethod(null, null, 555, null,
+                        null, "Lunch");
+        System.out.println("expectedData = " + expectedData);
+
+        //Send The Request Get The Response
+        Response response = given(spec).body(expectedData).patch("{first}/{second}");
+        response.prettyPrint();
+
+        //Do Assertion
+        Map<String, Object> actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), HashMap.class);
+        System.out.println("actualData = " + actualData);
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedData.get( "additionalneeds"), actualData.get( "additionalneeds"));
+        assertEquals(expectedData.get("totalprice"),actualData.get("totalprice"));
+
 
     }
 }

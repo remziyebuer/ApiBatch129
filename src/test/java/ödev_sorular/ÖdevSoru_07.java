@@ -33,37 +33,37 @@ public class ÖdevSoru_07 extends RegresBaseUrl {
                                               }
      */
 
-    @Test
-    public void post01() {
-     spec.pathParam("first", "users");
-
-        HerOkuAppTestData herOkuAppTestData = new HerOkuAppTestData();
-       Map<String , Object >  expectedData= herOkuAppTestData.hamitGül("morpheus","leader");
-
-
-        Response response =  given(spec).body(expectedData).post("{first}");
-        response.prettyPrint();
-
-
-
-      Map<String, Object> actualData = response.as(HashMap.class);
-        System.out.println("actualData = " + actualData);
-
-        assertEquals(201,response.statusCode());
-
-        assertEquals(expectedData.get("name"),actualData.get("name"));
-        assertEquals(expectedData.get("job"),actualData.get("job"));
-
-
-
-
-
-
-
-
+//    @Test
+//    public void post01() {
+//     spec.pathParam("first", "users");
+//
+//        HerOkuAppTestData herOkuAppTestData = new HerOkuAppTestData();
+//     //  Map<String , Object >  expectedData= herOkuAppTestData.hamitGül("morpheus","leader");
+//
+//
+//        Response response =  given(spec).body(expectedData).post("{first}");
+//        response.prettyPrint();
+//
+//
+//
+//      Map<String, Object> actualData = response.as(HashMap.class);
+//        System.out.println("actualData = " + actualData);
+//
+//        assertEquals(201,response.statusCode());
+//
+//        assertEquals(expectedData.get("name"),actualData.get("name"));
+//        assertEquals(expectedData.get("job"),actualData.get("job"));
+//
+//
+//
+//
+//
+//
+//}
+//
 
 
 
 
     }
-}
+

@@ -8,35 +8,32 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static smoketest01_herokuapp.C01_PostRequest.bookingid;
 
-public class C05_DeleteRequest extends HerOkuAppBaseUrl {
-    /*
+public class C06_GetRequest_NegativeTest  extends HerOkuAppBaseUrl {
+     /*
     Given
     https://restful-booker.herokuapp.com/booking/:id
     When
-    Send Delete Request
+    Send Get Request
     Then
-    Status Code is 201
+    Status Code is 404
     And
-    Response Body;
-    Created
-
-     */
+    Response Body is "Not Found"
+*/
 
     @Test
-    public void smokeTestDelete() {
-
+    public void smokeTestGetNegative() {
         //Set the Url
         spec.pathParams("first","booking","second", bookingid);
 
         //Set the expected Data
-        String expectedData = "Created";
+        String expectedData = "Not Found";
 
         //Send The Request Get The Response
-        Response response =   given(spec).delete("{first}/{second}");
+        Response response =   given(spec).get("{first}/{second}");
         response.prettyPrint();
 
         //Do Assertion
-        assertEquals(201,response.statusCode());
+        assertEquals(404,response.statusCode());
         assertEquals(expectedData, response.asString());
     }
 }
