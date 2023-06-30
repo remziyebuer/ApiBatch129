@@ -50,13 +50,20 @@ public class Get13_ObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         //Do assertion
-        JsonPlaceHolderPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), JsonPlaceHolderPojo.class);
+        JsonPlaceHolderPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),
+                                            JsonPlaceHolderPojo.class);
         System.out.println("actualData = " + actualData);
 
         assertEquals(200, response.statusCode());
         assertEquals(expectedData.getUserId(), actualData.getUserId());
         assertEquals(expectedData.getTitle(), actualData.getTitle());
         assertEquals(expectedData.getCompleted(), actualData.getCompleted());
+
+        /*
+          ObjectMapper sınıfının readValue() yöntemi, bir XML belgesini Java nesnesine dönüştürmek için
+         kullanılır.Bu yöntem, belirtilen XML belgesini okur ve belgeyi verilen Java sınıfına uygun
+         olarak ayrıştırır.
+         */
 
     }
 

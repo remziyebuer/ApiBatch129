@@ -24,8 +24,8 @@ public class HerOkuAppTestData {
 public Map<String, String> bookingdatesMapMethod(String checkin, String checkout) {
 
     Map<String , String> bookingsDateMap= new HashMap<>();
-        bookingsDateMap.put("checkin", "checkin");
-        bookingsDateMap.put("checkout", "checkout");
+        bookingsDateMap.put("checkin", checkin);
+        bookingsDateMap.put("checkout", checkout);
 
                 return bookingsDateMap;
 
