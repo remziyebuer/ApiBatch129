@@ -53,7 +53,7 @@ public class C02_GetRequest_PozitifTest extends HerOkuAppBaseUrl {
         //Send The Request Get the Response
         Response response =   given(spec).get("{first}/{second}");
         response.prettyPrint();//su an bunu calistirdigimda not found alirim cün ki su an id '0'
-        //id nin bir deger alabilmesi icin önce post request class i calismali
+        //id nin bir deger alabilmesi icin önce post request class i calismali****
         //o yüzden benim runner class a ihtiyacim var.
 
 

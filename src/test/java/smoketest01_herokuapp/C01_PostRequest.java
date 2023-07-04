@@ -55,7 +55,7 @@ public class C01_PostRequest extends HerOkuAppBaseUrl {
 }
      */
 
-    public static int bookingid; //****diger classlarda buradan impor edecegiz
+    public static int bookingid; //****diger classlardan ulasilabilmesi icin(static yaptik) buradan import edecegiz
 
 
     @Test
@@ -91,11 +91,11 @@ public class C01_PostRequest extends HerOkuAppBaseUrl {
         assertEquals(bookingDatesPojo.getCheckout(), actualData.getBooking().getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
 
-        // id ye ulasmak icin jsonpath kullaniyorum
+        // id ye ulasmak icin jsonpath kullaniyorum****
         bookingid = response.jsonPath().getInt("bookingid");
 
         //Post request ile olusturulan bookingid degerine baska islemlerde kullanilmak üzere diger classlardan
-        // erismek icin static birconteynir iicine atama yapiyoruz
+        // erismek icin static bir conteynir icine atama yapiyoruz
 
 
     }
