@@ -96,8 +96,25 @@ public class PostCountry extends GmiBankBaseUrl {
          Country expectedData = new Country("Banana",stateList);
         System.out.println("expectedData = " + expectedData);
 
-   //Send the request and get the response
+       //Send the request and get the response
        Response response = given(spec).body(expectedData).post("{first}/{second}");
        response.prettyPrint();
+
+       //Do Assertion
+
+        Country actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), Country.class );
+        System.out.println("actualData = " + actualData);
+
+        assertEquals(201, response.statusCode());//burasi loop kullanilarak nasil yapilir
+        assertEquals(expectedData.getName(), actualData.getName());
+        assertEquals(state1.getName(), actualData.getStates().get(0).getName());
+        assertEquals(state1.getId(), actualData.getStates().get(0).getId());
+        assertEquals(state2.getName(), actualData.getStates().get(1).getName());
+        assertEquals(state2.getId(), actualData.getStates().get(1).getId());
+        assertEquals(state3.getName(), actualData.getStates().get(2).getName());
+        assertEquals(state3.getId(), actualData.getStates().get(2).getId());
+
+
+
     }
 }
